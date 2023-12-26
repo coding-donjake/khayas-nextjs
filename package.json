@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prisma:deploy": "npx prisma migrate deploy",
+    "prisma:generate": "npx prisma generate",
+    "prisma:init": "npx prisma migrate dev --name init --create-only",
+    "prisma:seed": "ts-node prisma/seed.ts",
+    "prisma:update": "npx prisma migrate dev --name update --create-only",
+    "setup": "npm install && npm run prisma:init && npm run prisma:deploy && npm run prisma:generate && npm run prisma:seed",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
